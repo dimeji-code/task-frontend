@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+  --col: #8eac8895;
+  --col-dark: #5a7e53cd;
+
 }
+html{scroll-behavior:smooth}
 
 .App-logo {
   height: 40vmin;
@@ -12,7 +16,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+col{
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +40,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+@keyframes button-move {
+  from {
+    transform: translate(10px, 15px);
+  }
+  to {
+    transform: translate(14px, 14px);
+  }
+}
+.gutter {
+  background-color: rgb(235, 239, 233);
+  background-repeat: no-repeat;
+  background-position: 0%;
+  z-index: 2;
+
+ 
+}
+.gutter:hover { 
+  background-color: rgb(221, 226, 217);
+  cursor:col-resize;
+
+}
+
+
+
+.custom-shape-divider-bottom-1656185425 .shape-fill {
+  /* fill: #FCFBFB; */
+  fill: #8eac8832;
+}
+
+.custom-shape-divider-bottom-1656185425 {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+  /* transform: rotate(180deg); */
+
 }

@@ -1,6 +1,6 @@
 {
   "homepage":"http://dimeji-code.github.io/task-frontend",
-  "name": "frontend",
+  "name": "task-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

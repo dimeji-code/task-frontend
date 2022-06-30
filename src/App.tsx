@@ -17,7 +17,7 @@ function App() {
       </Head>
       <Body>
       <Routes >
-        <Route  path="/" element={<Landing/>}/>
+        <Route  path="/task-frontend" element={<Landing/>}/>
         <Route  path="/home" element={<Homescreen page="profile"/>}/>
         <Route  path="/schedule" element={<Homescreen page="schedule"/>}/>
         <Route  path="/contacts" element={<Homescreen page="contacts"/>}/>

@@ -7,6 +7,14 @@
     deadline: string;
     completed:boolean;
 };
+export type UserSchema = {
+    name:"",
+    email:"",
+    password:"",
+    
+};
+export const userData:any = {name:"aubameyang",email:"auba@gmail.com",password:"aubama-who"}
+
 
 export const taskData:any = [
     // new TaskSchema( "1","Finish Essay for English Class", "English essay forPresentation in School","School", "Sept 3, 2022", false),

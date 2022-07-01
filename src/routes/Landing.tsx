@@ -35,49 +35,41 @@ const Landing = () => {
         <StyledH3>About Us</StyledH3>
       </TitleB>     
       <LeftSvg>
-        {/* <SvgImg><ReachGoal/></SvgImg>
-        <SvgImg><Visualize/></SvgImg> */}
-
-
-        {/* <Illustration>
-          <div >
-            <p style={{margin: '10px 10px'}}><strong>Multitask</strong> and manage time better.</p>
-          </div>
-          <SvgImg><Multitask/></SvgImg>
-
-        </Illustration> */}
         <Illustration>
           <SvgImg><ReachGoal/></SvgImg>
-          <div>
+          <SvgText>
             <p style={{margin: '10px 10px'}}>Reach your <strong>goals</strong> and set new ones.</p>
-          </div>
+          </SvgText>
         </Illustration>
         <Illustration>
-          <div>
+          <SvgText>
             <p style={{margin: '10px 10px'}}><strong>Visualize</strong> your progress and manage your time better.</p>
-          </div>
+          </SvgText>
           <SvgImg><Visualize/></SvgImg>
         </Illustration>
        
       </LeftSvg>
     </AppBody2>
-    <PreFooter id="resources">
-      <StyledH3>Tools Used</StyledH3>
-      <LogoContainer>
-        <Logo><Mui/></Logo>
-        <Logo><Mongo/></Logo>
-        <Logo><ReactLogo/></Logo>
-      </LogoContainer>
-      <LogoContainer>
-        <Logo><Node/></Logo>
-        <Logo><Redux/></Logo>
-      </LogoContainer>
+    <Tools>
+      <PreFooter id="resources">
+        <StyledH3>Tools Used</StyledH3>
+        <LogoContainer>
+          <Logo><Mui/></Logo>
+          <Logo><Redux/></Logo>
+          <Logo><ReactLogo/></Logo>
+        </LogoContainer>
+      </PreFooter>
+      <PreFooter id="resources">
+        <StyledH3>Coming Soon</StyledH3>
+        <LogoContainer>
+          <Logo><Node/></Logo>
+          <Logo><Mongo/></Logo>
+        </LogoContainer>
 
-    </PreFooter>
+      </PreFooter>
+    </Tools>
     <Footer>
     <h4>©Copyright Dimeji S.</h4>
-    {/* <h5>Stop playing and give me the job already.</h5> */}
-
     </Footer>
 
     </Container>
@@ -129,8 +121,10 @@ color: #2b313bed;
 const StyledH3 = styled.h3`
 font-family:'roboto';
 font-weight: 600;
-font-size: 2.8rem;
+font-size: 2.4rem;
 color: #2b313bed;
+border-bottom: 1.3px solid #282c33e6;
+
 `
 
 const StyledH5 = styled.h5`
@@ -165,15 +159,19 @@ const Right = styled.div`
 
   }
 `
-
+const Tools = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 const PreFooter = styled.div`
 flex-direction: column;
 display: flex;
+flex:0.5;
 align-items: center;
 justify-content: center;
 background-color:#fff;
-box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(163, 150, 137, 0.048),2.31px 4.31px 0.8px 1.2px rgba(213, 224, 212, 0.067),
-    1px 1px 0.5px 1px rgba(91, 66, 44, 0.056);
+box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(195, 186, 176, 0.048),2.31px 4.31px 0.8px 1.2px rgba(213, 224, 212, 0.067),
+    1px 1px 0.5px 1px rgba(165, 155, 146, 0.056);
     @media (max-width:710px) {
     flex-direction: column;
     align-items: center;
@@ -184,8 +182,11 @@ box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(163, 150, 137, 0.048),2.31px 4.31px 0
 const LogoContainer = styled.div`
 padding: 8px 10px;
 display: flex;
+flex-direction: column;
+flex:1;
 align-items: center;
 justify-content: space-evenly;
+/* width:80vw; */
 @media (max-width:535px) {
     flex-direction: column;
     /* margin: 30px 0; */
@@ -199,8 +200,8 @@ const Logo = styled.div`
 
   :hover{
     cursor: pointer;
-    border-bottom: 1px solid #2b313bed;
-    box-shadow: 0.11px 0.1px 0.5px 2.2px rgba(163, 150, 137, 0.048);
+    border-bottom: 1px solid #95989d86;
+    box-shadow: 0.11px 0.1px 0.5px 1.2px rgba(231, 228, 224, 0.048);
   }
 
 
@@ -235,10 +236,13 @@ const LeftSvg = styled.div`
 flex-direction: row;
 justify-content: space-evenly;
 width: 100vw;
+padding: 2%;
 @media (max-width:1076px) {
   flex-direction: column;
   align-items: center;
   justify-content:center;
+  padding: 0 30px ;
+
  }
 
 `
@@ -248,6 +252,7 @@ const Illustration = styled.div`
  object-fit: contain;
  display: flex;
  flex: 0.36;
+ /* flex: 0.5; */
  object-fit: contain;
  overflow: hidden;
  border-radius: 6px;
@@ -257,6 +262,7 @@ const Illustration = styled.div`
   @media (max-width:1076px) {
 
       margin: 30px 0;
+      flex:none;
   }
 `
 
@@ -274,3 +280,19 @@ const SvgImg = styled.div`
  }
 
 `
+const SvgText = styled.div`
+
+ background-color: #f6f9f2b9;
+ align-items: center;
+ justify-content: center;
+ object-fit: contain;
+ display: flex;
+ flex: 0.7;
+
+
+ @media (max-width:1076px) {
+   p{
+    font-size: 13px;
+   }
+ }
+ `

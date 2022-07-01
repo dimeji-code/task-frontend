@@ -1,16 +1,13 @@
 // A "slice" is a collection of Redux reducer logic and actions
 // for a single feature in your app, typically defined together in a single file.
 import {createSlice} from '@reduxjs/toolkit'
-import {taskData,TaskSchema} from '../data/data'
+import {taskData,userData} from '../data/data'
 const userSlice = createSlice({
     //name of the slice
     name: "user",
     //the initial state definition, will be altered along the way
     initialState:{
-        // value:{
-            name:"",
-            email:"",
-            password:"",
+            user:userData,
             login:false,
             tasks: taskData,
             selectedTask:{}
@@ -22,9 +19,6 @@ const userSlice = createSlice({
 
             return{
                 ...state,
-                name: action.payload.name,
-                email: action.payload.email,
-                password: action.payload.password,
                 login: action.payload.login,
                 
             }
@@ -32,10 +26,9 @@ const userSlice = createSlice({
         logout:(state,action)=>{
             return{
                 ...state,
-                name: action.payload.name,
-                email: action.payload.email,
-                password: action.payload.password,
                 login: action.payload.login,
+                tasks: taskData,
+                selectedTask:{},
                 
             }
         },

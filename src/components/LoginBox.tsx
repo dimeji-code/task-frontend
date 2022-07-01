@@ -1,20 +1,31 @@
 import React,{useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Button from './Button'
-import { Link } from "react-router-dom";
-import {useDispatch} from "react-redux"
+import { Link, useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
 import {login} from "../reducers/userReducer"
 const LoginBox = () => {
     const  dispatch= useDispatch()
+    let navigate = useNavigate();
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const grabCredentials = useSelector((state:any) => state.user.user)
     useEffect(() =>{
   
       console.log("Text has changed=>  ",email);
       
     },[ email])
+
+    const confirmLogin = () => {
+      // if (name.toLocaleLowerCase() == grabCredentials.name && password == grabCredentials.password) {
+        dispatch(login({login:true}))
+        navigate("/home",{replace:true})
+
+      // }
+    }
 
   return (
         <LoginContainer>
@@ -22,14 +33,14 @@ const LoginBox = () => {
               <StyledH4>Log in</StyledH4>
             </Header>
             <Body>
-            <InputBody type='text' placeholder='Username:' onChange={(event:any) =>{setName(event.target.value)}} value={name}/>
-            <InputBody type='email' placeholder='Email:' onChange={(event:any) =>{setEmail(event.target.value)}} value={email}/>
-            <InputBody required={true} type='password' placeholder='Password:' onChange={(event:any) =>{setPassword(event.target.value)}} value={password}/>
-              <div>
-                <Link to='/home'>
-                 <Button type='outline'  title = 'Enter' onPress={()=>{dispatch(login({name:name, email:email, password:password,login:true}))}}/>
-                </Link>
-              </div>
+              <InputBody type='text' placeholder='Username:' onChange={(event:any) =>{setName(event.target.value)}} value={name}/>
+              {/* <InputBody type='email' placeholder='Email:' onChange={(event:any) =>{setEmail(event.target.value)}} value={email}/> */}
+              <InputBody required={true} type='password' placeholder='Password:' onChange={(event:any) =>{setPassword(event.target.value)}} value={password}/>
+                <div>
+                  {/* <Link to='/home'> */}
+                  <Button type='outline'  title = 'Enter' onPress={()=>{confirmLogin()}}/>
+                  {/* </Link> */}
+                </div>
             </Body>
           </LoginContainer>  )
 }
@@ -52,6 +63,8 @@ const Body = styled.div`
   padding: 8%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 `
 const LoginContainer = styled.div`

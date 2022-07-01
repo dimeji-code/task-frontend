@@ -6,20 +6,26 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from './Button';
 import {useSelector, useDispatch} from "react-redux"
 import {logout} from "../reducers/userReducer"
+import $ from 'jquery';
+
 const Header = (props: any) => {
     const  user = useSelector((state:any) => state.user)
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
+    const goToByScroll = (id:string) =>{
+        console.log('scrolling...')
+        $('html,body').animate({scrollTop: $("#"+id).offset()!.top},'slow');
+    }
+
     const signout = async() =>{
         if(user.login){
             // not sure if ther is a need for await Here
-            //but i wont change it now. Work on database begins soon
             await dispatch(logout({
-                name:"",email:"",password:"",login:false
+                login:false, tasks:[]
             }))
 
-            navigate("/",{replace:true})
+            navigate("/task-frontend",{replace:true})
 
         }
     }
@@ -32,15 +38,15 @@ const Header = (props: any) => {
             </svg>
         </div>
         <LeftSide>
-            <Link to='/'>
+            <Link to='/task-frontend'>
                 <Logo />
             </Link>
         </LeftSide>
         <MiddleSide>
             <Un_List>
-                {user.login && <li><a href=''>Productivity Tips</a></li>}
-                {!user.login && <li><a href='#about'>About Us</a></li>}
-                {!user.login && <li><a href='#resources'>Resources</a></li>}
+                {user.login && <li><a >Productivity Tips</a></li>}
+                {!user.login && <li><a onClick={()=> goToByScroll('about')}>About Us</a></li>}
+                {!user.login && <li><a onClick={()=> goToByScroll('resources')}>Resources</a></li>}
                 {/* <li><a href='#about'>Socials</a></li> */}
             </Un_List>
     

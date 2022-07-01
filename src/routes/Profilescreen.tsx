@@ -47,7 +47,6 @@ const Profilescreen = (props: any) => {
         "July", "August", "September", "October", "November", "December"
       ];
       var strDate:string = months[mon]+" "+ day+ " "+yr ;
-        // console.log("day is ", months[mon]," ", day, " ",yr);
         
         return strDate
     }
@@ -59,7 +58,7 @@ const Profilescreen = (props: any) => {
                 <img src='https://www.fcbarcelona.com/photo-resources/2022/03/02/c31a1150-821c-42d1-ac7d-09611a355507/mini_1200x750-25-AUBAMEYANG.png?width=1200&height=750' />
             </ProfileImg>
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',marginLeft:'15px', flex:1}}>
-                <h3>Hello <span style={{color:"#61882ae6"}}> {user.name}</span>.</h3>
+                <h3>Hello <span style={{color:"#61882ae6"}}> {user.user.name}</span>.</h3>
                 <div>
                     <Button  type='outline' color={'#61882ae6'} title = 'Edit Profile' onPress={()=>{}}/>
                        

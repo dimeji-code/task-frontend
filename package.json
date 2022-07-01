@@ -1,5 +1,5 @@
 {
-  "homepage":"https://dimeji-code.github.io/task-frontend",
+  "homepage": "https://dimeji-code.github.io/task-frontend",
   "name": "task-frontend",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +19,7 @@
     "@types/react-redux": "^7.1.24",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
+    "jquery": "^3.6.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.2.0",
     "react-datepicker": "^4.8.0",
@@ -35,8 +36,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -62,10 +63,10 @@
   },
   "devDependencies": {
     "@types/gh-pages": "^3.2.1",
+    "@types/jquery": "^3.5.14",
     "@types/react-datepicker": "^4.4.2",
     "@types/styled-components": "^5.1.25",
     "@types/three": "^0.141.0",
     "gh-pages": "^4.0.0"
-
   }
 }

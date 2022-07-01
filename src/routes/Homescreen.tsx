@@ -11,13 +11,20 @@ import Contacts from './Contacts'
 import Create from './Create'
 import { Route, Routes,BrowserRouter} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux"
+import MobileSidebar from '../components/MobileSidebar';
+
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {width,height};
+}
 
 const Homescreen = (props:any) => {
 
     const window = useSelector((state:any) => state.window.value)
-  const [currWidth, setCurrWidth] = useState(0)
     const [ratio,setRatio] = useState([1,99])
-    const [open,setOpen] = useState(false)
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
     const aref = useRef<HTMLDivElement>(null);//for typesctipt reasons
     const lref = useRef<HTMLDivElement>(null);//for typesctipt reasons
     const rref = useRef<HTMLDivElement>(null);//for typesctipt reasons
@@ -25,9 +32,9 @@ const Homescreen = (props:any) => {
 
     useEffect(() => {
 
-          console.log("all width", aref.current!.offsetWidth);
-          console.log("left width", lref.current!.offsetWidth);
-          console.log("right width", rref.current!.offsetWidth);
+          // console.log("all width", aref.current!.offsetWidth);
+          // console.log("left width", lref.current!.offsetWidth);
+          // console.log("right width", rref.current!.offsetWidth);
 
           if(window.tabOpen){
             setRatio([20,80])
@@ -37,10 +44,10 @@ const Homescreen = (props:any) => {
           }
       }, [ window.tabOpen]);
       
-    var swi = open==true?[20,80]:[1,99]
 
   return (
     <Container ref={aref}>
+      {windowDimensions.width > 950 &&
         <Split  style={{flex:1,flexDirection: "row", display:"flex", width:"100vw" }} sizes={ratio}
                 minSize={0}
                 expandToMin={false}
@@ -66,6 +73,17 @@ const Homescreen = (props:any) => {
 
 
         </Split>
+    }
+      {windowDimensions.width <= 950 && 
+      <Body>
+        <MobileSidebar />
+      {props.page =="profile"&& <Profile />}
+      {props.page =="schedule"&& <Schedule />}
+      {props.page =="contacts"&& <Contacts />}
+      {props.page =="create"&& <Create />}
+      </Body>
+          }
+
     </Container>
   )
 }
@@ -77,7 +95,6 @@ const Container = styled.div`
   flex:1;
   display: flex;
   /* z-index: 2; */
-
 `
 const Left = styled.div`
   height:100%;
@@ -97,26 +114,10 @@ const Right = styled.div`
 
   /* background-color:#a6eaca; */
 `
-const ArrowButton = styled.div`
-    margin: 0 2px;
-    border: 1px solid #cccccc1f;
-    border-radius: 5px;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    :hover{
-        border: 1px solid #ccc;
-        cursor: pointer;
-    }
-`
-
 const Body = styled.div`
-display: flex;
+  display: flex;
   z-index: 3;
-/* flex: 0.98; */
-flex: 1;
-border-right: 1px solid #793232;
-/* z-index: 2; */
+  flex: 1;
+  border-right: 1px solid #793232;
 
 `

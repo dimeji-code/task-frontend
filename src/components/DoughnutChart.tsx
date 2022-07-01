@@ -49,7 +49,7 @@ const DoughnutChart = (props:any) => {
   };
 
   return (
-    <div style={{width: '260px', height: '260px'}}>
+    <div>
      <Doughnut data={data} updateMode='resize'  />
      </div>
   )

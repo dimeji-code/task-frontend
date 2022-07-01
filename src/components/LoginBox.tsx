@@ -20,11 +20,11 @@ const LoginBox = () => {
     },[ email])
 
     const confirmLogin = () => {
-      // if (name.toLocaleLowerCase() == grabCredentials.name && password == grabCredentials.password) {
+      if (name.toLocaleLowerCase() == grabCredentials.name && password == grabCredentials.password) {
         dispatch(login({login:true}))
         navigate("/home",{replace:true})
 
-      // }
+      }
     }
 
   return (
@@ -33,9 +33,9 @@ const LoginBox = () => {
               <StyledH4>Log in</StyledH4>
             </Header>
             <Body>
-              <InputBody type='text' placeholder='Username:' onChange={(event:any) =>{setName(event.target.value)}} value={name}/>
+              <InputBody type='text' placeholder='Username:  aubameyang' onChange={(event:any) =>{setName(event.target.value)}} value={name}/>
               {/* <InputBody type='email' placeholder='Email:' onChange={(event:any) =>{setEmail(event.target.value)}} value={email}/> */}
-              <InputBody required={true} type='password' placeholder='Password:' onChange={(event:any) =>{setPassword(event.target.value)}} value={password}/>
+              <InputBody required={true} type='password' placeholder='Password:  aubama-who' onChange={(event:any) =>{setPassword(event.target.value)}} value={password}/>
                 <div>
                   {/* <Link to='/home'> */}
                   <Button type='outline'  title = 'Enter' onPress={()=>{confirmLogin()}}/>

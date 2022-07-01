@@ -38,7 +38,7 @@ const Header = (props: any) => {
             </svg>
         </div>
         <LeftSide>
-            <Link to='/task-frontend'>
+            <Link to={user.login?'/home':'/task-frontend'}>
                 <Logo />
             </Link>
         </LeftSide>

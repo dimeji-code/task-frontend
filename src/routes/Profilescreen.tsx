@@ -136,12 +136,14 @@ const ProfileImg = styled.div`
 `
 const Data = styled.div`
     display: flex;
-    /* flex: 0.55; */
+    flex: 0.80;
     flex-direction: row;
     justify-content:space-between;
     @media (max-width:745px) {
             flex-direction: column;
             align-items: center;
+            overflow: scroll;
+
         }
 `
 const Info = styled.div`
@@ -153,12 +155,14 @@ const Info = styled.div`
  box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(163, 150, 137, 0.136),2.31px 4.31px 0.8px 1.2px rgba(213, 224, 212, 0.067),
     1px 1px 0.5px 1px rgba(91, 66, 44, 0.052);
  width: 40%;
+
  /* overflow: hidden; */
  @media (max-width:745px) {
             flex-direction: column;
             align-items: center;
             width: 85%;
-            overflow-y: scroll;
+            /* height: 80%; */
+            margin: 5px 0px;
         }
 `
 const Table = styled.div`

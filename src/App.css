@@ -4,7 +4,11 @@
   --col-dark: #5a7e53cd;
 
 }
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  overflow-x: hidden;
+
+}
 
 .App-logo {
   height: 40vmin;

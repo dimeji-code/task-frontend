@@ -98,7 +98,7 @@ const Container = styled.div`
     /* width: 200px; */
     /* animation: sidebar-hide 2.1s linear; */
     /* transform: translateX(-100%); */
-    transition: 1.9s ease-in-out;
+    transition: 1.2s ease-in-out;
     display: flex;
     justify-content:space-between;
     &before{
@@ -107,18 +107,7 @@ const Container = styled.div`
     &after{
 
     }
-    @keyframes sidebar-hide {
-        from {
 
-            color:#fff; 
-            transition: translateX(100%) ;
-        }
-        to {
-            background-color: #fff;
-            transition: translateX(-100%) ;
-
-        }
-        }
 `
 
 const TabOpener = styled.div`

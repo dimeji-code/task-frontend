@@ -127,5 +127,12 @@ const Body = styled.div`
 `
 const MobileContainer = styled.div`
 width: 100%;
+height:100%;
+  background-color:white;
+  border: 1px solid var(--slack-border-white);
+  /* min-width:78vw;
+  max-width: 98vw; */
+  display: flex;
+  z-index: 3;
 
 `

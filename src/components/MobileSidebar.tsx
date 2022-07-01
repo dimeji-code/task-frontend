@@ -6,10 +6,26 @@ import FaceIcon from '@mui/icons-material/Face';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import CreateIcon from '@mui/icons-material/Create';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import Button from "./Button"
+import {useSelector, useDispatch} from "react-redux"
+import {toggleWindowTab} from "../reducers/windowReducer"
+import $ from 'jquery';
 
 const MobileSidebar = (props:any) => {
+
+    const dispatch = useDispatch()
+    const open = useSelector((state:any) => state.window.value.tabOpen) 
+
+    // $('button').on('click', function() {
+        const toggleSideNav = () =>{
+            console.log("toggle side nav");
+            
+        $('.sideNav').toggleClass('sideBarMove');
+        }
+    //   });
+
   return (
-    <Container>
+    <Container className="sideNav">
         <div>
             <p>Navigation</p>
             <Link style={{textDecoration: 'none'}} to="/home">
@@ -52,14 +68,18 @@ const MobileSidebar = (props:any) => {
                     </Icon>
                 </Item>
             </Link>
+
         </div>
         <TabOpener >
             
             {/* <ArrowButton onClick={() => dispatch(toggleWindowTab({tabOpen: (open?false:true) }))}>
                 <DoubleArrowIcon sx={{ color: '#f7faf7eb', }} fontSize="small"/>
             </ArrowButton> */}
-             <ArrowButton onClick={() => {}}>
-               <span> <DoubleArrowIcon sx={{ color: '#6fb68ceb', }} fontSize="small"/></span>
+             <ArrowButton onClick={() => {
+                dispatch(toggleWindowTab({tabOpen: (open?false:true) }));
+                toggleSideNav();
+             }}>
+               <span> <DoubleArrowIcon sx={{ color: '#20392aeb', }} fontSize="small"/></span>
             </ArrowButton>
                     
         </TabOpener>    
@@ -75,10 +95,10 @@ const Container = styled.div`
     height: 90vh ;
     background-color: #fff;
     z-index: 4;
-    width: 200px;
+    /* width: 200px; */
     /* animation: sidebar-hide 2.1s linear; */
-    transform: translateX(-0%);
-    transition: 2.9s ease-in-out;
+    /* transform: translateX(-100%); */
+    transition: 1.9s ease-in-out;
     display: flex;
     justify-content:space-between;
     &before{
@@ -162,7 +182,6 @@ const Item = styled.div`
     align-items: center;
     :hover{
         cursor: pointer;
-        /* background-color: #bedcbba9; */
         background-color: #8eac8847;
     }
     :focus::before{
@@ -172,9 +191,6 @@ const Item = styled.div`
         color: #000;
     }
 `
-
-
-
 const Title = styled.h5`
     font-size: 17px;
     font-weight: 500;

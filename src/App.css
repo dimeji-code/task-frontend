@@ -63,7 +63,11 @@ col{
 
 }
 
-
+.sideBarMove{
+ 
+  transform: translateX(-100%);
+  -webkit-transform:translateX(-85%);
+}
 
 .custom-shape-divider-bottom-1656185425 .shape-fill {
   /* fill: #FCFBFB; */

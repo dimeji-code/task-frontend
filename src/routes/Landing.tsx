@@ -87,13 +87,13 @@ const AppBody = styled.div`
   width:100vw;
   flex:1;
   display: flex;
-  @media (max-width:700px) {
+  @media (max-width:700px){
     height:100vh ;
   }
 `
 const AppBody2 = styled.div`
   height:100vh ;
-  width:100vw;
+  max-width:100vw;
   flex:1;
   display: flex;
   flex-direction: column;
@@ -162,6 +162,11 @@ const Right = styled.div`
 const Tools = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width:560px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+ }
 `
 const PreFooter = styled.div`
 flex-direction: column;
@@ -170,8 +175,8 @@ flex:0.5;
 align-items: center;
 justify-content: center;
 background-color:#fff;
-box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(195, 186, 176, 0.048),2.31px 4.31px 0.8px 1.2px rgba(213, 224, 212, 0.067),
-    1px 1px 0.5px 1px rgba(165, 155, 146, 0.056);
+/* box-shadow: 0.81px 0.61px 1.5px 2.2px rgba(195, 186, 176, 0.048),2.31px 4.31px 0.8px 1.2px rgba(213, 224, 212, 0.067),
+    1px 1px 0.5px 1px rgba(165, 155, 146, 0.056); */
     @media (max-width:710px) {
     flex-direction: column;
     align-items: center;
@@ -235,8 +240,8 @@ const LeftSvg = styled.div`
  display: flex;
 flex-direction: row;
 justify-content: space-evenly;
-width: 100vw;
-padding: 2%;
+/* width: 100vw; */
+/* padding: 2%; */
 @media (max-width:1076px) {
   flex-direction: column;
   align-items: center;
@@ -275,9 +280,12 @@ const SvgImg = styled.div`
  display: flex;
  flex: 0.3;
 
- @media (max-width:1076px) {
-
- }
+ @media (max-width:700px) {
+    width: 200px;
+  }
+  @media (max-width:500px) {
+    width: 150px;
+  }
 
 `
 const SvgText = styled.div`

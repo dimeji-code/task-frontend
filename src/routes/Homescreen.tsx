@@ -75,13 +75,15 @@ const Homescreen = (props:any) => {
         </Split>
     }
       {windowDimensions.width <= 950 && 
+      <MobileContainer> 
+      <MobileSidebar />
       <Body>
-        <MobileSidebar />
       {props.page =="profile"&& <Profile />}
       {props.page =="schedule"&& <Schedule />}
       {props.page =="contacts"&& <Contacts />}
       {props.page =="create"&& <Create />}
       </Body>
+      </MobileContainer>
           }
 
     </Container>
@@ -116,8 +118,14 @@ const Right = styled.div`
 `
 const Body = styled.div`
   display: flex;
+  width: 100%;
   z-index: 3;
   flex: 1;
   border-right: 1px solid #793232;
+  padding: 0 10px;
+
+`
+const MobileContainer = styled.div`
+width: 100%;
 
 `
